@@ -18,9 +18,11 @@ import edu.wpi.first.wpilibj2.command.ConditionalCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.RobotContainer;
+import frc.robot.Globals;
 // import the commands
 import frc.robot.commands.auto.MoveRobot;
 import frc.robot.commands.auto.MoveTest;
+import frc.robot.commands.auto.functionX;
 //import frc.robot.commands.auto.MoveIRSensor;
 import frc.robot.commands.auto.RotateTest;
 import frc.robot.commands.auto.MoveRobotSense.end_func;
@@ -44,39 +46,34 @@ public class AutoMainCmd extends SequentialCommandGroup {
 
                 // new MoveRobot(0, 0, 0, 0, 0), // Move left
                 // new MoveRobot(0, 0, 0, 0, 0) // Move Forward
-                new MoveRobot(1, 0.5, 0, 0, 5),
-                new MoveRobot(0, -1.1 + 0.3, 0, 0, 5),
-                new MoveRobotSense(1, 1, 0, 0, 5, () -> m_sensor.getIRDistance() < 10),
-                new Pick(),
 
-                new MoveRobot(0, -3.26, 0, 0, 5),
-                new MoveRobotSense(1, 1, 0, 0, 5, () -> m_sensor.getIRDistance() < 20),
-                new MoveRobotSense(0, 10, 0, 0, 0.25, () -> m_sensor.getCobraTotal() > 3500),
-                new Pick(),
+                // new MoveRobot(1, 0.5, 0, 0, 5),
+                // new MoveRobot(0, -1.1 + 0.3, 0, 0, 5),
+                // new MoveRobotSense(1, 1, 0, 0, 5, () -> m_sensor.getIRDistance() < 10),
+                // new Pick(),
+                new MoveRobot(2, Math.PI, 0, 0, Math.PI),
+                new MoveRobot(2, Math.PI, 0, 0, Math.PI),
+                new MoveRobot(2, Math.PI, 0, 0, Math.PI),
+                new MoveRobot(2, Math.PI, 0, 0, Math.PI)
 
-                new MoveRobot(1, -0.60, 0, 0, 5),
-                new MoveRobot(0, 2, 0, 0, 5),
-                new MoveRobotSense(0, 10, 0, 0, 0.25, () -> m_sensor.getCobraTotal() > 3500),
-                new MoveRobotSense(1, 1, 0, 0, 5, () -> m_sensor.getIRDistance() < 10),
-                new Pick(),
+        // new LoopCmd(new functionX(), () -> (++Globals.loopCount) > 8)
 
-                new MoveRobot(0, -3.26, 0, 0, 5),
-                new MoveRobotSense(1, 1, 0, 0, 5, () -> m_sensor.getIRDistance() < 20),
-                new MoveRobotSense(0, 10, 0, 0, 0.25, () -> m_sensor.getCobraTotal() > 3500),
-                new Pick(),
+        // new MoveRobot(0, -2, 0, 0, 5),
+        // new MoveRobot(1, -.3, 0, 0, 5),
+        // new MoveRobot(2, (Math.PI - Math.PI / 7), 0, 0, Math.PI),
+        // new MoveRobotSense(0, 10, 0, 0, 0.25, () -> m_sensor.getCobraTotal() > 3500),
+        // new MoveRobotSense(1, 1, 0, 0, 5, () -> m_sensor.getIRDistance() < 10),
+        // new Pick(),
 
-                new MoveRobot(1, -0.60, 0, 0, 5),
-                new MoveRobot(0, 2, 0, 0, 5),
-                new MoveRobotSense(0, 10, 0, 0, 0.25, () -> m_sensor.getCobraTotal() > 3500),
-                new MoveRobotSense(1, 1, 0, 0, 5, () -> m_sensor.getIRDistance() < 10),
-                new Pick(),
+        // new MoveRobot(1, -.3, 0, 0, 5),
+        // new MoveRobot(2, (Math.PI - Math.PI / 7), 0, 0, Math.PI),
 
-                new MoveRobot(0, -3.26, 0, 0, 5),
-                new MoveRobot(2, Math.PI/2, 0, 0, 5),
-                new MoveRobotSense(0, 10, 0, 0, 0.25, () -> m_sensor.getCobraTotal() > 3500),
-                new Pick(),
-
-                
+        // new MoveRobot(0, 2, 0, 0, 5),
+        // new MoveRobotSense(0, 10, 0, 0, 0.25, () ->
+        // RobotContainer.m_sensor.getCobraTotal() > 3500),
+        // new MoveRobotSense(1, 1, 0, 0, 5, () ->
+        // RobotContainer.m_sensor.getIRDistance() < 10),
+        // new Pick()
 
         // new Pick()
         // new MoveArm(new Translation2d(0.2,0),25),

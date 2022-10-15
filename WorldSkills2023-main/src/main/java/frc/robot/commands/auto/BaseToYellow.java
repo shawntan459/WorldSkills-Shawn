@@ -10,8 +10,8 @@ import frc.robot.commands.auto.MoveRobotSense;
 public class BaseToYellow extends SequentialCommandGroup {
     public BaseToYellow() {
         super(
-                new MoveRobot(1, 0.5, 0, 0, 5),
-                new MoveRobot(0, -1.1, 0, 0, 5),
+                new MoveRobot(1, 0.6, 0, 0, 5),
+                // new MoveRobot(0, -1.1 + 0.3, 0, 0, 5),
                 new MoveRobotSense(0, -10, 0, 0, 0.25, () -> RobotContainer.m_sensor.getCobraTotal() > 3500),
                 new MoveRobotSense(1, 1, 0, 0, 5, () -> RobotContainer.m_sensor.getIRDistance() < 10),
                 new Pick());

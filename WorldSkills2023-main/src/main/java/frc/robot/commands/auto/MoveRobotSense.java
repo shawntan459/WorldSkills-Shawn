@@ -8,7 +8,7 @@ import frc.robot.commands.auto.MoveRobot;
  * <p>
  * This class drives a motor
  */
-public class MoveRobotSense extends SequentialCommandGroup {
+public class MoveRobotSense extends MoveRobot {
     private final end_func f_ptr;
 
     interface end_func {

@@ -7,11 +7,12 @@ import frc.robot.RobotContainer;
 import frc.robot.commands.auto.MoveRobot;
 import frc.robot.commands.auto.MoveRobotSense;
 
-public class TopToYellow extends SequentialCommandGroup {
-    public TopToYellow() {
+public class YellowToBottom extends SequentialCommandGroup {
+    public YellowToBottom() {
         super(
-                new MoveRobot(1, -0.63, 0, 0, 5),
-                new MoveRobot(0, 2, 0, 0, 5),
+                new MoveRobot(0, -2, 0, 0, 5),
+                new MoveRobot(1, -.4, 0, 0, 5),
+                new MoveRobot(2, (Math.PI), 0, 0, Math.PI),
                 new MoveRobotSense(0, 10, 0, 0, 0.25, () -> RobotContainer.m_sensor.getCobraTotal() > 3500),
                 new MoveRobotSense(1, 1, 0, 0, 5, () -> RobotContainer.m_sensor.getIRDistance() < 10),
                 new Pick());

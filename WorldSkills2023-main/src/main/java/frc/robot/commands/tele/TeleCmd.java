@@ -8,8 +8,7 @@ import frc.robot.subsystems.OmniDrive;
 import frc.robot.subsystems.Sensor;
 
 //This command will be run during teleop mode
-public class TeleCmd extends CommandBase
-{
+public class TeleCmd extends CommandBase {
     /**
      * Bring in Subsystem and Gamepad code
      */
@@ -21,22 +20,20 @@ public class TeleCmd extends CommandBase
     /**
      * Constructor
      */
-    public TeleCmd(OmniDrive omnidrive, OI oi, Arm arm)
-    {
+    public TeleCmd(OmniDrive omnidrive, OI oi, Arm arm) {
         m_omnidrive = RobotContainer.m_omnidrive;
         m_sensor = RobotContainer.m_sensor;
         m_oi = RobotContainer.m_oi;
         m_arm = RobotContainer.m_arm;
-        addRequirements(m_omnidrive); //add the drive subsystem as a requirement 
-		//addRequirements(m_menu); 
+        addRequirements(m_omnidrive); // add the drive subsystem as a requirement
+        // addRequirements(m_menu);
     }
 
     /**
      * Code here will run once when the command is called for the first time
      */
     @Override
-    public void initialize()
-    {
+    public void initialize() {
 
     }
 
@@ -44,30 +41,31 @@ public class TeleCmd extends CommandBase
      * Code here will run continously every robot loop until the command is stopped
      */
     @Override
-    public void execute()
-    {
+    public void execute() {
         /**
          * Get Joystick data
          */
-        //Right stick for X-Y control
-        //Left stick for W (rotational) control
+        // Right stick for X-Y control
+        // Left stick for W (rotational) control
         double x = m_oi.getRightDriveX();
-        double y = -m_oi.getRightDriveY();//Down is positive. Need to negate
-        double w = -m_oi.getLeftDriveX(); //X-positive is CW. Need to negate
+        double y = -m_oi.getRightDriveY();// Down is positive. Need to negate
+        double w = -m_oi.getLeftDriveX(); // X-positive is CW. Need to negate
 
-        //Get other buttons?
+        // Get other buttons?
 
-        //Add code here to control servo motor etc.
+        // Add code here to control servo motor etc.
 
-        //m_omnidrive.setMotorOut012(s0,s1,s2);
+        // m_omnidrive.setMotorOut012(s0,s1,s2);
         // m_arm.setServoAngle0( (w*150) + 150);
         // m_arm.setServoAngle1( (w*150) + 150);
-        m_omnidrive.setRobotSpeedXYW(x, y, w*Math.PI);
-//        Translation2d pos = new Translation2d(0.25, 0.25); //90,90
- //     Translation2d pos = new Translation2d(0.25, 0); //60,120
- //Translation2d pos = new Translation2d(0.25/Math.sqrt(2)+0.25, 0.25/Math.sqrt(2));//45,45
-        Translation2d pos = new Translation2d(m_arm.getSliderX(), m_arm.getSliderY());
-        m_arm.setArmPos(pos);
+        m_omnidrive.setRobotSpeedXYW(x, y, w * Math.PI);
+        // Translation2d pos = new Translation2d(0.25, 0.25); //90,90
+        // Translation2d pos = new Translation2d(0.25, 0); //60,120
+        // Translation2d pos = new Translation2d(0.25/Math.sqrt(2)+0.25,
+        // 0.25/Math.sqrt(2));//45,45
+        // Translation2d pos = new Translation2d(m_arm.getSliderX(),
+        // m_arm.getSliderY());
+        // m_arm.setArmPos(pos);
 
     }
 
@@ -77,8 +75,7 @@ public class TeleCmd extends CommandBase
      * Good place to stop motors in case of an error
      */
     @Override
-    public void end(boolean interrupted)
-    {
+    public void end(boolean interrupted) {
         m_omnidrive.setMotorOut012(0, 0, 0);
     }
 
@@ -86,8 +83,7 @@ public class TeleCmd extends CommandBase
      * Check to see if command is finished
      */
     @Override
-    public boolean isFinished()
-    {
+    public boolean isFinished() {
         return false;
     }
 }
