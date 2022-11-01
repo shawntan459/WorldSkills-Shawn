@@ -50,7 +50,20 @@ public class TeleCmd extends CommandBase {
         double x = m_oi.getRightDriveX();
         double y = -m_oi.getRightDriveY();// Down is positive. Need to negate
         double w = -m_oi.getLeftDriveX(); // X-positive is CW. Need to negate
+        boolean open = m_oi.getDriveAButton();
+        boolean lower = m_oi.getDriveRightBumper();
+        if (lower) {
+            m_arm.setArmPos(new Translation2d(0.33, -0.07));
+        } else {
+            m_arm.setArmPos(new Translation2d(0.33, 0.24));
+        }
 
+        if (open) {
+            m_arm.setServoAngle2(300);
+        } else {
+            m_arm.setServoAngle2(0);
+        }
+        m_arm.setServoAngle3(180);
         // Get other buttons?
 
         // Add code here to control servo motor etc.
@@ -59,10 +72,6 @@ public class TeleCmd extends CommandBase {
         // m_arm.setServoAngle0( (w*150) + 150);
         // m_arm.setServoAngle1( (w*150) + 150);
         m_omnidrive.setRobotSpeedXYW(x, y, w * Math.PI);
-        // Translation2d pos = new Translation2d(0.25, 0.25); //90,90
-        // Translation2d pos = new Translation2d(0.25, 0); //60,120
-        // Translation2d pos = new Translation2d(0.25/Math.sqrt(2)+0.25,
-        // 0.25/Math.sqrt(2));//45,45
         // Translation2d pos = new Translation2d(m_arm.getSliderX(),
         // m_arm.getSliderY());
         // m_arm.setArmPos(pos);

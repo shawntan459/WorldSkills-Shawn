@@ -39,7 +39,7 @@ public class MoveArm extends CommandBase
      * @param pos - target position
      * @param maxSpeed - max speed of robot
      */
-    //This move the robot a certain distance following a trapezoidal speed profile.
+
     public MoveArm(Translation2d pos, double maxSpeed)
     {
         m_constraints = new TrapezoidProfile.Constraints(maxSpeed, maxSpeed);

@@ -33,11 +33,12 @@ public final class Constants {
      * Sensors
      */
     public static final int SHARP = 0;
+    public static final int GRIPPERIR = 1;
     public static final int SONIC_TRIGG = 8;
     public static final int SONIC_ECHO = 9;
 
     // Wheels
-    public static final double KWHEELDIAMETER = 0.1; // wheel diameter
+    public static final double KWHEELDIAMETER = 0.099; // wheel diameter
     public static final double KENCODERCNTPR = 1464; // Count per output shaft rev
     public static final double KENCODERDISTPERPULSE = (KWHEELDIAMETER * Math.PI) / KENCODERCNTPR;
 
